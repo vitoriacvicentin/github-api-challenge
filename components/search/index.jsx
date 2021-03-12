@@ -4,7 +4,6 @@ import { BsSearch } from "react-icons/bs";
 import { useState, useContext } from "react";
 import { ItemsContext } from "../../context/ItemsContext";
 
-
 const initialState = {
   user: "",
 };
@@ -15,6 +14,7 @@ export const Search = () => {
   const itemsContext = useContext(ItemsContext);
 
   const getUser = () => {
+    itemsContext.razRepos();
     fetch(`https://api.github.com/users/${state.user}`)
       .then((res) => res.json())
       .then(
