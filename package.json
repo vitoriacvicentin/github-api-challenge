@@ -11,8 +11,10 @@
   "dependencies": {
     "bootstrap": "^4.4.1",
     "next": "latest",
-    "react": "^16.13.1",
+    "react": "^17.0.1",
     "react-bootstrap": "^1.0.1",
-    "react-dom": "^16.13.1"
+    "react-dom": "^17.0.1",
+    "react-icons": "^4.2.0",
+    "styled-components": "^5.2.1"
   }
 }
