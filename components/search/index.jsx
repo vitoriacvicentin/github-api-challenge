@@ -1,15 +1,18 @@
 import { Header, Div } from "./styles";
-import { InputGroup, FormControl, Button, Container } from "react-bootstrap";
+import { InputGroup, FormControl, Button } from "react-bootstrap";
 import { BsSearch } from "react-icons/bs";
-import { useState } from "react";
+import { useState, useContext } from "react";
+import { ItemsContext } from "../../context/ItemsContext";
+
 
 const initialState = {
   user: "",
 };
+
 export const Search = () => {
   const [state, setState] = useState(initialState);
   const [isLoaded, setIsLoaded] = useState(false);
-  const [items, setItems] = useState([]);
+  const itemsContext = useContext(ItemsContext);
 
   const getUser = () => {
     fetch(`https://api.github.com/users/${state.user}`)
@@ -17,7 +20,7 @@ export const Search = () => {
       .then(
         (result) => {
           setIsLoaded(true);
-          setItems(result);
+          itemsContext.setItems(result);
         },
 
         (error) => {
@@ -36,9 +39,9 @@ export const Search = () => {
               onChange={(event) =>
                 setState({ user: event.currentTarget.value })
               }
-              onKeyPress={event => {
-                if (event.key === 'Enter') {
-                  setState({ user: event.currentTarget.value })
+              onKeyPress={(event) => {
+                if (event.key === "Enter") {
+                  setState({ user: event.currentTarget.value });
                   getUser();
                 }
               }}

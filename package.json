@@ -16,5 +16,11 @@
     "react-dom": "^17.0.1",
     "react-icons": "^4.2.0",
     "styled-components": "^5.2.1"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.13.10",
+    "@babel/node": "^7.13.10",
+    "@babel/plugin-proposal-class-properties": "^7.13.0",
+    "@babel/preset-env": "^7.13.10"
   }
 }
