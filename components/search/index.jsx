@@ -36,6 +36,12 @@ export const Search = () => {
               onChange={(event) =>
                 setState({ user: event.currentTarget.value })
               }
+              onKeyPress={event => {
+                if (event.key === 'Enter') {
+                  setState({ user: event.currentTarget.value })
+                  getUser();
+                }
+              }}
             />
             <InputGroup.Append>
               <Button variant="outline-secondary" onClick={getUser}>
