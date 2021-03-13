@@ -1,4 +1,4 @@
-## Git Hub Api Challeng
+## Git Hub Api Challenge
 
 Project developed in React with Next JS , using React Bootstrap and CSS with Styled Components.
 
