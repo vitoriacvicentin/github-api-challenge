@@ -1,4 +1,5 @@
 import React, { createContext, useState } from "react";
+
 /**
  * user: array do usuario
  * repos: array dos repositorios do usuario
@@ -8,6 +9,7 @@ import React, { createContext, useState } from "react";
  * razRepos: limpa o contexto do array repos
  * setVariable: recebe a string 'starred' ou 'repos' do fetch em: components/search/index
  */
+
 const defaultValue = {
   user: {},
   repos: {},
@@ -21,12 +23,12 @@ const defaultValue = {
 export const UserContext = createContext(defaultValue);
 
 export const UserContextProvider = ({ children }) => {
-/* Hooks para o uso */
+  /* Hooks para o uso */
   const [user, setUser] = useState(defaultValue);
   const [repos, setRepos] = useState(defaultValue);
   const [variable, setVariable] = useState(defaultValue);
 
-/* Limpa o array repos */
+  /* Limpa o array repos */
   const razRepos = () => {
     setRepos(defaultValue);
   };

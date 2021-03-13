@@ -5,7 +5,9 @@ import { Container } from "./styles";
 import Buttons from "../buttons";
 import ListResults from "../listRepos/index";
 import Link from "next/link";
+
 /* Card do resultado de busca, exibido somente se encontrar algo */
+
 export const CardResults = () => {
   const userContext = useContext(UserContext);
   const card = userContext.user;
@@ -14,7 +16,7 @@ export const CardResults = () => {
       {card?.name ? (
         <Container>
           <Card style={{ width: "18rem" }} border="warning">
-            <Link href={"userDetail"} as={(card?.login ? "" : card?.login)} >
+            <Link href={"userDetail"} as={card?.login ? "" : card?.login}>
               <Card.Img
                 variant="top"
                 src={card.avatar_url}

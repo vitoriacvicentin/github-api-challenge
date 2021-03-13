@@ -8,6 +8,7 @@ import { UserContext } from "../../context/userContext";
   Contexto: foi usado para armazenar os dados do result do fetch
   isLoaded: seta o carregamento do Spinner
 */
+
 const initialState = {
   user: "",
 };
@@ -26,7 +27,7 @@ export const Search = () => {
         setIsLoaded(false);
         userContext.setUser(result);
       })
-      .catch((error) => console.log(error));
+      .catch((error) => console.log(error), abortController);
   };
 
   return (

@@ -1,46 +1,34 @@
 import { Button } from "react-bootstrap";
-import { useContext, useState } from "react";
+import { useContext } from "react";
 import { UserContext } from "../../context/userContext";
 
 /* Botões de ação Repos e Starred */
+
 export const Buttons = () => {
-  const [isLoaded, setIsLoaded] = useState(false);
   const userContext = useContext(UserContext);
 
   const user = userContext.user.login;
 
-  const getRepo = () => {
+  const getRepo = async (abortController = new AbortController()) => {
     userContext.razRepos();
-    fetch(`https://api.github.com/users/${user}/repos`)
+    return await fetch(`https://api.github.com/users/${user}/repos`)
       .then((res) => res.json())
-      .then(
-        (result) => {
-          setIsLoaded(true);
-          userContext.setRepos(result);
-          userContext.setVariable('repo');
-        },
-
-        (error) => {
-          setIsLoaded(true);
-        }
-      );
+      .then((result) => {
+        userContext.setRepos(result);
+        userContext.setVariable("repo");
+      })
+      .catch((error) => console.log(error), abortController);
   };
 
-  const getRepoStarred = () => {
+  const getRepoStarred = async (abortController = new AbortController()) => {
     userContext.razRepos();
-    userContext.setVariable('starred');
+    userContext.setVariable("starred");
     fetch(`https://api.github.com/users/${user}/starred`)
       .then((res) => res.json())
-      .then(
-        (result) => {
-          setIsLoaded(true);
-          userContext.setRepos(result);
-        },
-
-        (error) => {
-          setIsLoaded(true);
-        }
-      );
+      .then((result) => {
+        userContext.setRepos(result);
+      })
+      .catch((error) => console.log(error), abortController);
   };
 
   return (

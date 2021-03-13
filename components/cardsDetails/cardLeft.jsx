@@ -4,7 +4,6 @@ import { UserContext } from "../../context/userContext";
 import { ContainerLeft } from "./styles";
 import { BiCurrentLocation } from "react-icons/bi";
 
-
 /* Card da esquerda da tela de detalhes */
 
 export const CardLeft = () => {

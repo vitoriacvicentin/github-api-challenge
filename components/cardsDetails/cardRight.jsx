@@ -5,7 +5,7 @@ import { UserContext } from "../../context/userContext";
 import { GoRepo } from "react-icons/go";
 
 /* Card a direita da tela de detalhes, exibido somente se encontrar algo 
-   as condições {card?.compo &&()} verificam se tem conteudo para exibir
+*  as condições {card?.compo &&()} verificam se tem conteudo para exibir
 */
 
 export const CardRight = () => {
