@@ -1,22 +1,23 @@
 import { Button } from "react-bootstrap";
 import { useContext, useState } from "react";
-import { ItemsContext } from "../../context/ItemsContext";
+import { UserContext } from "../../context/userContext";
 
+/* Botões de ação Repos e Starred */
 export const Buttons = () => {
   const [isLoaded, setIsLoaded] = useState(false);
-  const itemsContext = useContext(ItemsContext);
+  const userContext = useContext(UserContext);
 
-  const user = itemsContext.items.login;
+  const user = userContext.user.login;
 
   const getRepo = () => {
-    itemsContext.razRepos();
+    userContext.razRepos();
     fetch(`https://api.github.com/users/${user}/repos`)
       .then((res) => res.json())
       .then(
         (result) => {
           setIsLoaded(true);
-          itemsContext.setRepos(result);
-          itemsContext.setVariable('repo');
+          userContext.setRepos(result);
+          userContext.setVariable('repo');
         },
 
         (error) => {
@@ -26,14 +27,14 @@ export const Buttons = () => {
   };
 
   const getRepoStarred = () => {
-    itemsContext.razRepos();
-    itemsContext.setVariable('starred');
+    userContext.razRepos();
+    userContext.setVariable('starred');
     fetch(`https://api.github.com/users/${user}/starred`)
       .then((res) => res.json())
       .then(
         (result) => {
           setIsLoaded(true);
-          itemsContext.setRepos(result);
+          userContext.setRepos(result);
         },
 
         (error) => {

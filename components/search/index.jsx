@@ -1,9 +1,13 @@
-import {Div,Header } from "./styles";
+import { Div, Header } from "./styles";
 import { InputGroup, FormControl, Button, Spinner } from "react-bootstrap";
 import { BsSearch } from "react-icons/bs";
 import { useState, useContext } from "react";
-import { ItemsContext } from "../../context/ItemsContext";
-
+import { UserContext } from "../../context/userContext";
+/* 
+  Barra de busca da pagina principal
+  Contexto: foi usado para armazenar os dados do result do fetch
+  isLoaded: seta o carregamento do Spinner
+*/
 const initialState = {
   user: "",
 };
@@ -11,22 +15,18 @@ const initialState = {
 export const Search = () => {
   const [state, setState] = useState(initialState);
   const [isLoaded, setIsLoaded] = useState(false);
-  const itemsContext = useContext(ItemsContext);
+  const userContext = useContext(UserContext);
 
-  const getUser = () => {
-    itemsContext.razRepos();
+  const getUser = async (abortController = new AbortController()) => {
+    userContext.razRepos();
     setIsLoaded(true);
-    fetch(`https://api.github.com/users/${state.user}`)
+    return await fetch(`https://api.github.com/users/${state.user}`)
       .then((res) => res.json())
-      .then(
-        (result) => {
-          setIsLoaded(false);
-          itemsContext.setItems(result);
-        },
-        (error) => {
-          setIsLoaded(true);
-        }
-      );
+      .then((result) => {
+        setIsLoaded(false);
+        userContext.setUser(result);
+      })
+      .catch((error) => console.log(error));
   };
 
   return (
@@ -53,7 +53,6 @@ export const Search = () => {
                     as="span"
                     animation="border"
                     size="sm"
-                    role={isLoaded}
                     aria-hidden="true"
                   />
                 ) : (

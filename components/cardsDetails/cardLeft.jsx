@@ -1,13 +1,15 @@
 import { Card, Button } from "react-bootstrap";
 import { useContext } from "react";
-import { ItemsContext } from "../../context/ItemsContext";
+import { UserContext } from "../../context/userContext";
 import { ContainerLeft } from "./styles";
 import { BiCurrentLocation } from "react-icons/bi";
-import Link from "next/link";
+
+
+/* Card da esquerda da tela de detalhes */
 
 export const CardLeft = () => {
-  const itemsContext = useContext(ItemsContext);
-  const card = itemsContext.items;
+  const userContext = useContext(UserContext);
+  const card = userContext.user;
   return (
     <>
       {card?.login && (

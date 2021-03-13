@@ -1,14 +1,14 @@
 import { Card, Button } from "react-bootstrap";
 import { useContext } from "react";
-import { ItemsContext } from "../../context/ItemsContext";
+import { UserContext } from "../../context/userContext";
 import { Container } from "./styles";
 import Buttons from "../buttons";
 import ListResults from "../listRepos/index";
 import Link from "next/link";
-
+/* Card do resultado de busca, exibido somente se encontrar algo */
 export const CardResults = () => {
-  const itemsContext = useContext(ItemsContext);
-  const card = itemsContext.items;
+  const userContext = useContext(UserContext);
+  const card = userContext.user;
   return (
     <>
       {card?.name ? (
@@ -18,7 +18,7 @@ export const CardResults = () => {
               <Card.Img
                 variant="top"
                 src={card.avatar_url}
-                class="img-cursor"
+                className="img-cursor"
                 alt={"Avatar Imagem"}
               />
             </Link>

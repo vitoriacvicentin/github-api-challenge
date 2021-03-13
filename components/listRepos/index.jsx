@@ -1,34 +1,34 @@
-import { useContext, useState } from "react";
-import { ItemsContext } from "../../context/ItemsContext";
+import { useContext } from "react";
+import { UserContext } from "../../context/userContext";
 import Link from "next/link";
 import { Container } from "./styles";
 
+/* Lista dos repositorios*/
+
 export const ListResults = () => {
-  const itemsContext = useContext(ItemsContext);
-  const repos = itemsContext.repos;
+  const userContext = useContext(UserContext);
+  const repos = userContext.repos;
 
   return (
-    <>
-      <Container>
+      <div>
         {repos.length > 0 && (
-          <div>
-            {itemsContext.variable === "repo" ? (
+          <Container>
+            {userContext.variable === "repo" ? (
               <ul>Repositorios:</ul>
             ) : (
               <ul>Repositorios Mais Visitados:</ul>
             )}
             {repos.map((slug) => (
-              <Link href={slug.html_url}>
+              <Link href={slug.html_url} key={slug.id} >
                 <a target="_blank" rel="noreferrer">
                   <li>{slug?.name}</li>
                 </a>
               </Link>
             ))}
-          </div>
+          </Container>
         )}
         {repos.length <= 0 && <a>Nenhum repositorio encontrado</a>}
-      </Container>
-    </>
+      </div>
   );
 };
 
