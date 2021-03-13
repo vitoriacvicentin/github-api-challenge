@@ -14,18 +14,18 @@ export const CardResults = () => {
       {card?.name ? (
         <Container>
           <Card style={{ width: "18rem" }} border="warning">
-            <Link href={"userDetail"} as={card.login} >
+            <Link href={"userDetail"} as={(card?.login ? "" : card?.login)} >
               <Card.Img
                 variant="top"
-                src={card.avatar_url}
+                src={card?.avatar_url}
                 class="img-cursor"
               />
             </Link>
             <Card.Body>
-              <Card.Title>{card.name}</Card.Title>
+              <Card.Title>{card?.name}</Card.Title>
               <Card.Text>
                 <span>Local: </span>
-                {card.location}
+                {card?.location}
               </Card.Text>
               <Buttons />
               <ListResults />

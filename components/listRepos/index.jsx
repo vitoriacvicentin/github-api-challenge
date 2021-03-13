@@ -20,7 +20,7 @@ export const ListResults = () => {
             {repos.map((slug) => (
               <Link href={slug.html_url}>
                 <a target="_blank" rel="noreferrer">
-                  <li>{slug.name}</li>
+                  <li>{slug?.name}</li>
                 </a>
               </Link>
             ))}
