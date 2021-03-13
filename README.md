@@ -12,7 +12,7 @@ npm install
 ```
 ```bash
 If your use Yarn:
-Yarn
+yarn
 ```
 
 ## Usage in dev
