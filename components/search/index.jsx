@@ -1,5 +1,5 @@
 import { Header, Div } from "./styles";
-import { InputGroup, FormControl, Button } from "react-bootstrap";
+import { InputGroup, FormControl, Button, Spinner } from "react-bootstrap";
 import { BsSearch } from "react-icons/bs";
 import { useState, useContext } from "react";
 import { ItemsContext } from "../../context/ItemsContext";
@@ -15,11 +15,12 @@ export const Search = () => {
 
   const getUser = () => {
     itemsContext.razRepos();
+    setIsLoaded(true);
     fetch(`https://api.github.com/users/${state.user}`)
       .then((res) => res.json())
       .then(
         (result) => {
-          setIsLoaded(true);
+          setIsLoaded(false);
           itemsContext.setItems(result);
         },
         (error) => {
@@ -47,7 +48,17 @@ export const Search = () => {
             />
             <InputGroup.Append>
               <Button variant="outline-secondary" onClick={getUser}>
-                <BsSearch size={20} />
+                {isLoaded === true ? (
+                  <Spinner
+                    as="span"
+                    animation="border"
+                    size="sm"
+                    role={isLoaded}
+                    aria-hidden="true"
+                  />
+                ) : (
+                  <BsSearch size={20} />
+                )}
               </Button>
             </InputGroup.Append>
           </InputGroup>

@@ -12,7 +12,13 @@ export const Container = styled.div`
     margin: 1rem;
     width:35%;
   }
-  a{
+  span{
     font-weight:bold;
+  }
+  .img-cursor{
+    cursor:pointer;
+    &:hover {
+      opacity: 0.5;
+    }
   }
 `;

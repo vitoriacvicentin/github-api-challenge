@@ -1,13 +1,11 @@
-import Head from 'next/head'
-import { Container, Row, Card, Button } from 'react-bootstrap'
-import Results from '../components/results'
+import CardResults from '../components/cardResults'
 import Search from '../components/search'
 
 export default function Home() {
   return (
     <>
        <Search />
-       <Results />
+       <CardResults />
     </>
   )
 }

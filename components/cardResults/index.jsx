@@ -3,22 +3,32 @@ import { useContext } from "react";
 import { ItemsContext } from "../../context/ItemsContext";
 import { Container } from "./styles";
 import Buttons from "../buttons";
-import CardRepos from "../cardRepos/index";
+import ListResults from "../listRepos/index";
+import Link from "next/link";
 
-export const Results = () => {
+export const CardResults = () => {
   const itemsContext = useContext(ItemsContext);
   const card = itemsContext.items;
   return (
     <>
       {card?.name ? (
         <Container>
-          <Card style={{ width: "18rem"}} border="warning">
-            <Card.Img variant="top" src={card.avatar_url} />
+          <Card style={{ width: "18rem" }} border="warning">
+            <Link href={"userDetail"} as={card.login} >
+              <Card.Img
+                variant="top"
+                src={card.avatar_url}
+                class="img-cursor"
+              />
+            </Link>
             <Card.Body>
               <Card.Title>{card.name}</Card.Title>
-              <Card.Text><a>Local: </a>{card.location}</Card.Text>
+              <Card.Text>
+                <span>Local: </span>
+                {card.location}
+              </Card.Text>
               <Buttons />
-              <CardRepos />
+              <ListResults />
             </Card.Body>
           </Card>
         </Container>
@@ -31,4 +41,4 @@ export const Results = () => {
   );
 };
 
-export default Results;
+export default CardResults;
