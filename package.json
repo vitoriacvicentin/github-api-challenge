@@ -1,8 +1,7 @@
 {
-  "name": "with-react-bootstrap",
-  "version": "0.1.0",
-  "author": "Wenzhi Li",
-  "license": "MIT",
+  "name": "github-api-challeng",
+  "version": "1.0.0",
+  "author": "Vitoria Vicentin",
   "scripts": {
     "dev": "next dev",
     "build": "next build",
@@ -11,6 +10,8 @@
   "dependencies": {
     "bootstrap": "^4.4.1",
     "next": "latest",
+    "next-compose-plugins": "^2.2.1",
+    "next-images": "^1.7.0",
     "react": "^17.0.1",
     "react-bootstrap": "^1.0.1",
     "react-dom": "^17.0.1",
