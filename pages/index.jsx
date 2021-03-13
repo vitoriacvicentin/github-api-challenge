@@ -1,7 +1,7 @@
 import CardResults from '../components/cardResults'
 import Search from '../components/search'
 
-export default function Home() {
+export const Home = () => {
   return (
     <>
        <Search />
@@ -9,3 +9,4 @@ export default function Home() {
     </>
   )
 }
+export default Home;

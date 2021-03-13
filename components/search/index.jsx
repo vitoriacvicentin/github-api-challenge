@@ -1,4 +1,4 @@
-import { Header, Div } from "./styles";
+import {Div,Header } from "./styles";
 import { InputGroup, FormControl, Button, Spinner } from "react-bootstrap";
 import { BsSearch } from "react-icons/bs";
 import { useState, useContext } from "react";
