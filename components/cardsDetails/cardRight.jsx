@@ -3,6 +3,7 @@ import { useContext } from "react";
 import { ContainerRight } from "./styles";
 import { UserContext } from "../../context/userContext";
 import { GoRepo } from "react-icons/go";
+import moment from "moment";
 
 /* Card a direita da tela de detalhes, exibido somente se encontrar algo 
 *  as condições {card?.compo &&()} verificam se tem conteudo para exibir
@@ -11,6 +12,7 @@ import { GoRepo } from "react-icons/go";
 export const CardRight = () => {
   const userContext = useContext(UserContext);
   const card = userContext.user;
+  let date = moment(card.created_at).parseZone().format("DD/MM/YYYY HH:mm")
   return (
     <>
       {card?.login && (
@@ -45,14 +47,14 @@ export const CardRight = () => {
               {card?.created_at && (
                 <Card.Text>
                   <span>Criado em: </span>
-                  {card?.created_at}
+                  {`${date.replace(' ', '\n')}`}
                 </Card.Text>
               )}
             </Card.Body>
           </Card>
           <Card className="mb-2">
             <Card.Header>
-              Repositorios publicos <GoRepo size={15} />
+             Repositórios Públicos <GoRepo size={15} />
             </Card.Header>
             <Card.Body>
               <Card.Title>{card?.public_repos}</Card.Title>

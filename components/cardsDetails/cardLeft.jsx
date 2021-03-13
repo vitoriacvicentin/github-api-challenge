@@ -20,7 +20,7 @@ export const CardLeft = () => {
               <Card.Text>{card?.login}</Card.Text>
               <Card.Text>
                 <BiCurrentLocation size={20} />
-                {card?.location}
+                {card?.location ? card?.location : " Não registrado"}
               </Card.Text>
             </Card.Body>
             <Button

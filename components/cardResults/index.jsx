@@ -11,12 +11,13 @@ import Link from "next/link";
 export const CardResults = () => {
   const userContext = useContext(UserContext);
   const card = userContext.user;
+
   return (
     <>
-      {card?.name ? (
+      {card?.login ? (
         <Container>
           <Card style={{ width: "18rem" }} border="warning">
-            <Link href={"userDetail"} as={card?.login ? "" : card?.login}>
+            <Link href={"userDetail"} as={card?.login}>
               <Card.Img
                 variant="top"
                 src={card.avatar_url}
@@ -28,7 +29,7 @@ export const CardResults = () => {
               <Card.Title>{card?.name}</Card.Title>
               <Card.Text>
                 <span>Local: </span>
-                {card?.location}
+                {card?.location ? card?.location : " Não registrado"}
               </Card.Text>
               <Buttons />
               <ListResults />

@@ -46,4 +46,7 @@ export const ContainerRight = styled.div`
   @media screen and (max-width: 785px) {
     margin-left:1rem;
   }
+  span {
+    font-weight: bold;
+  }
 `;
