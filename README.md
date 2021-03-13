@@ -6,11 +6,11 @@ Project developed in React with Next JS , using React Bootstrap and CSS with Sty
 
 Installation Commands:
 
-```bash
+```python
 If your use npm:
 npm install
 ```
-```bash
+```python
 If your use Yarn:
 yarn
 ```
