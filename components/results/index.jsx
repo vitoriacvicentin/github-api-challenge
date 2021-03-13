@@ -3,7 +3,7 @@ import { useContext } from "react";
 import { ItemsContext } from "../../context/ItemsContext";
 import { Container } from "./styles";
 import Buttons from "../buttons";
-import CardRepo from "../cardRepo.jsx";
+import CardRepos from "../cardRepos/index";
 
 export const Results = () => {
   const itemsContext = useContext(ItemsContext);
@@ -16,9 +16,9 @@ export const Results = () => {
             <Card.Img variant="top" src={card.avatar_url} />
             <Card.Body>
               <Card.Title>{card.name}</Card.Title>
-              <Card.Text>Local : {card.location}</Card.Text>
+              <Card.Text><a>Local: </a>{card.location}</Card.Text>
               <Buttons />
-              <CardRepo />
+              <CardRepos />
             </Card.Body>
           </Card>
         </Container>

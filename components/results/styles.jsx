@@ -12,4 +12,7 @@ export const Container = styled.div`
     margin: 1rem;
     width:35%;
   }
+  a{
+    font-weight:bold;
+  }
 `;

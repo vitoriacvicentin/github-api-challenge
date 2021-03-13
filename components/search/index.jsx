@@ -22,7 +22,6 @@ export const Search = () => {
           setIsLoaded(true);
           itemsContext.setItems(result);
         },
-
         (error) => {
           setIsLoaded(true);
         }

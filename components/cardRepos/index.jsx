@@ -1,17 +1,22 @@
 import { useContext, useState } from "react";
 import { ItemsContext } from "../../context/ItemsContext";
-import { Container } from "./styles";
 import Link from "next/link";
+import { ContainerCard } from "../../style/global";
 
-export const CardRepo = () => {
+export const CardRepos = () => {
   const itemsContext = useContext(ItemsContext);
   const repos = itemsContext.repos;
+  console.log(itemsContext.variable);
 
   return (
     <>
       {repos.length > 0 && (
-        <Container>
-          <ul>Repositorios:</ul>
+        <ContainerCard>
+          {itemsContext.variable === "repo" ? (
+            <ul>Repositorios:</ul>
+          ) : (
+            <ul>Repositorios Mais Visitados:</ul>
+          )}
           {repos.map((slug) => (
             <Link href={slug.html_url}>
               <a target="_blank" rel="noreferrer">
@@ -19,10 +24,10 @@ export const CardRepo = () => {
               </a>
             </Link>
           ))}
-        </Container>
+        </ContainerCard>
       )}
     </>
   );
 };
 
-export default CardRepo;
+export default CardRepos;
