@@ -20,5 +20,14 @@ export const Container = styled.div`
     &:hover {
       opacity: 0.5;
     }
+    @media screen and (max-width: 785px) {
+      width:auto;
+    }
+  }
+  @media screen and (max-width: 785px) {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
   }
 `;

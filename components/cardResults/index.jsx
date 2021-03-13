@@ -17,8 +17,9 @@ export const CardResults = () => {
             <Link href={"userDetail"} as={(card?.login ? "" : card?.login)} >
               <Card.Img
                 variant="top"
-                src={card?.avatar_url}
+                src={card.avatar_url}
                 class="img-cursor"
+                alt={"Avatar Imagem"}
               />
             </Link>
             <Card.Body>
