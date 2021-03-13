@@ -1,21 +1,54 @@
-# Next.js with react-bootstrap example
+## Git Hub Api Challeng
 
-This example shows how to use Next.js along with [react-bootstrap](https://react-bootstrap.github.io/).
+Project developed in React with Next JS , using React Bootstrap and CSS with Styled Components.
 
-## Deploy your own
+## Installation
 
-Deploy the example using [Vercel](https://vercel.com?utm_source=github&utm_medium=readme&utm_campaign=next-example):
-
-[![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/new/git/external?repository-url=https://github.com/vercel/next.js/tree/canary/examples/with-react-bootstrap&project-name=with-react-bootstrap&repository-name=with-react-bootstrap)
-
-## How to use
-
-Execute [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app) with [npm](https://docs.npmjs.com/cli/init) or [Yarn](https://yarnpkg.com/lang/en/docs/cli/create/) to bootstrap the example:
+Installation Commands:
 
 ```bash
-npx create-next-app --example with-react-bootstrap with-react-bootstrap-app
-# or
-yarn create next-app --example with-react-bootstrap with-react-bootstrap-app
+If your use npm:
+npm install
+```
+```bash
+If your use Yarn:
+Yarn
 ```
 
-Deploy it to the cloud with [Vercel](https://vercel.com/new?utm_source=github&utm_medium=readme&utm_campaign=next-example) ([Documentation](https://nextjs.org/docs/deployment)).
+## Usage in dev
+
+```python
+If your use npm:
+npm run dev
+```
+```python
+If your use yarn:
+yarn run dev
+```
+## Usage in production
+
+Build Commands:
+```python
+If your use npm:
+npm run build
+```
+```python
+If your use yarn:
+yarn run build
+```
+After build done, execute this:
+```python
+If your use npm:
+npm start
+```
+```python
+If your use yarn:
+yarn start
+```
+## Tests
+Tests realized in Smartphone, and Internet Navigators in Dev and Production.
+
+## Contributing
+This project doesn't accept contribuittions
+
+
